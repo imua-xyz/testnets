@@ -1,15 +1,30 @@
 #!/bin/bash
 # Set up a Exocore service to join the Exocore Release testnet.
 
+# Load environment variables from .env file
+if [ -f .env ]; then
+  export $(cat .env | xargs)
+fi
+
 # Configuration
-# You should only have to modify the values in this block
+# You can have these values set in .env file, and run 'source .env' before running this script.
 # ***
-NODE_HOME=~/.exocored
-NODE_MONIKER=release-testnet
+NODE_HOME=${NODE_HOME:-$HOME/.exocored}
+NODE_MONIKER=${NODE_MONIKER:-release-testnet}
+STATE_SYNC=${STATE_SYNC:-true}
+STATE_SYNC=$(echo "$STATE_SYNC" | tr '[:upper:]' '[:lower:]')
+
+if [ "$STATE_SYNC" = "true" ]; then
+  STATE_SYNC=true
+else
+  STATE_SYNC=false
+fi
+
+# Exocore configuration
+# Default values for Exocore testnet
 SERVICE_NAME=exocore
 EXOCORE_VERSION=1.0.2
 CHAIN_BINARY_URL=https://github.com/ExocoreNetwork/exocore/releases/download/v$EXOCORE_VERSION/exocore_$EXOCORE_VERSION\_Linux_amd64.tar.gz
-STATE_SYNC=true
 GAS_PRICE=0.0001aexo
 # ***
 
@@ -30,8 +45,8 @@ export PATH=$PATH:$HOME/go/bin
 echo "Installing Exocore..."
 
 # Download Linux amd64,
-wget $CHAIN_BINARY_URL
-tar -xvf exocore_$EXOCORE_VERSION\_Linux_amd64.tar.gz
+wget $CHAIN_BINARY_URL || { echo "Failed to download binary"; exit 1; }
+tar -xvf exocore_$EXOCORE_VERSION\_Linux_amd64.tar.gz || { echo "Failed to extract binary"; exit 1; }
 cp bin/$CHAIN_BINARY $HOME/go/bin/$CHAIN_BINARY
 chmod +x $HOME/go/bin/$CHAIN_BINARY
 
@@ -46,9 +61,9 @@ sed -i -e "/seeds =/ s^= .*^= \"$SEEDS\"^" $NODE_HOME/config/config.toml
 
 if $STATE_SYNC; then
     echo "Configuring state sync..."
-    CURRENT_BLOCK=$(curl -s $SYNC_RPC_1/block | jq -r '.result.block.header.height')
+    CURRENT_BLOCK=$(curl -s $SYNC_RPC_1/block | jq -r '.result.block.header.height') || { echo "Failed to fetch current block"; exit 1; }
     TRUST_HEIGHT=$(($CURRENT_BLOCK - 1000))
-    TRUST_BLOCK=$(curl -s $SYNC_RPC_1/block\?height\=$TRUST_HEIGHT)
+    TRUST_BLOCK=$(curl -s $SYNC_RPC_1/block\?height\=$TRUST_HEIGHT) || { echo "Failed to fetch trust block"; exit 1; }
     TRUST_HASH=$(echo $TRUST_BLOCK | jq -r '.result.block_id.hash')
     sed -i -e '/enable =/ s/= .*/= true/' $NODE_HOME/config/config.toml
     sed -i -e '/trust_period =/ s/= .*/= "8h0m0s"/' $NODE_HOME/config/config.toml
