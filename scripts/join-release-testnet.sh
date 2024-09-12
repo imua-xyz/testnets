@@ -26,10 +26,10 @@ EXOCORE_VERSION=1.0.4
 # Determine OS and architecture
 OS=$(uname -s)
 ARCH=$(uname -m)
-if ["$ARCH" == "x86_64"]; then
+if [ "$ARCH" == "x86_64" ]; then
   ARCH="amd64"
 fi
-if ["$ARCH" == "aarch64"]; then
+if [ "$ARCH" == "aarch64" ]; then
   ARCH="arm64"
 fi
 CHAIN_BINARY_URL=https://github.com/ExocoreNetwork/exocore/releases/download/v$EXOCORE_VERSION/exocore_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz
