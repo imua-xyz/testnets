@@ -2,7 +2,7 @@
 # Set up a Exocore service to join the Exocore Release testnet.
 # Load environment variables from .env file
 if [ -f .env ]; then
-  export $(cat .env | xargs)
+  export "$(cat .env | xargs)"
 fi
 
 # Configuration
