@@ -96,6 +96,7 @@ echo "Description=Exocore service" | sudo tee $SERVICE_PATH -a
 echo "After=network-online.target" | sudo tee $SERVICE_PATH -a
 echo "" | sudo tee $SERVICE_PATH -a
 echo "[Service]" | sudo tee $SERVICE_PATH -a
+echo "Environment=HOME=/root" | sudo tee $SERVICE_PATH -a
 echo "User=$USER" | sudo tee $SERVICE_PATH -a
 echo "ExecStart=$HOME/go/bin/$CHAIN_BINARY start --x-crisis-skip-assert-invariants --home $NODE_HOME" | sudo tee $SERVICE_PATH -a
 echo "Restart=no" | sudo tee $SERVICE_PATH -a
