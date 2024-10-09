@@ -22,7 +22,7 @@ fi
 # Exocore configuration
 # Default values for Exocore testnet
 SERVICE_NAME=exocore
-EXOCORE_VERSION=1.0.4
+EXOCORE_VERSION=1.0.5
 # Determine OS and architecture
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -33,12 +33,12 @@ if [ "$ARCH" == "aarch64" ]; then
   ARCH="arm64"
 fi
 CHAIN_BINARY_URL=https://github.com/ExocoreNetwork/exocore/releases/download/v$EXOCORE_VERSION/exocore_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz
-GAS_PRICE=0.0001aexo
+GAS_PRICE=0.0001hua
 # ***
 
 CHAIN_BINARY='exocored'
-CHAIN_ID=exocoretestnet_233-5
-GENESIS_URL=https://github.com/ExocoreNetwork/testnets/raw/main/genesis/exocoretestnet_233-5.json
+CHAIN_ID=exocoretestnet_233-6
+GENESIS_URL=https://github.com/ExocoreNetwork/testnets/raw/main/genesis/$CHAIN_ID.json
 SEEDS="5dfa2ddc4ce3535ef98470ffe108e6e12edd1955@seed2t.exocore-restaking.com:26656,4cc9c970fe52be4568942693ecfc2ee2cdb63d44@seed1t.exocore-restaking.com:26656"
 SYNC_RPC_1=http://seed1t.exocore-restaking.com:26657
 SYNC_RPC_2=http://seed2t.exocore-restaking.com:26657
@@ -88,7 +88,7 @@ wget $GENESIS_URL
 cp $CHAIN_ID.json $NODE_HOME/config/genesis.json
 
 SERVICE_PATH=/etc/systemd/system/$SERVICE_NAME.service
-sudo rm ${SERVICE_PATH}
+sudo rm -f ${SERVICE_PATH}
 sudo touch ${SERVICE_PATH}
 
 echo "[Unit]" | sudo tee $SERVICE_PATH
