@@ -84,7 +84,8 @@ fi
 
 # # Replace genesis file
 echo "Downloading genesis file..."
-wget $GENESIS_URL
+echo "Downloading genesis file..."
+wget $GENESIS_URL || { echo "Failed to download genesis file"; exit 1; }
 cp $CHAIN_ID.json $NODE_HOME/config/genesis.json
 
 SERVICE_PATH=/etc/systemd/system/$SERVICE_NAME.service
