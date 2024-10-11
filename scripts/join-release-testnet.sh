@@ -53,13 +53,24 @@ export PATH=$PATH:$HOME/go/bin
 echo "Installing Exocore..."
 
 # Download Linux amd64,
-wget $CHAIN_BINARY_URL || { echo "Failed to download binary"; exit 1; }
-tar -xvf exocore_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz || { echo "Failed to extract binary"; exit 1; }
+wget $CHAIN_BINARY_URL || {
+  echo "Failed to download binary"
+  exit 1
+}
+tar -xvf exocore_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz || {
+  echo "Failed to extract binary"
+  exit 1
+}
 cp bin/$CHAIN_BINARY $HOME/go/bin/$CHAIN_BINARY
 chmod +x $HOME/go/bin/$CHAIN_BINARY
 
 # Initialize home directory
 echo "Initializing $NODE_HOME..."
+read -p "This will delete any existing data in $NODE_HOME. Do you want to continue? [y/N]: " confirm
+if [[ $confirm != [yY] ]]; then
+  echo "Initialization cancelled."
+  exit 1
+fi
 rm -rf $NODE_HOME
 $HOME/go/bin/$CHAIN_BINARY config chain-id $CHAIN_ID --home $NODE_HOME
 $HOME/go/bin/$CHAIN_BINARY config keyring-backend test --home $NODE_HOME
@@ -68,24 +79,33 @@ sed -i -e "/minimum-gas-prices =/ s^= .*^= \"$GAS_PRICE\"^" $NODE_HOME/config/ap
 sed -i -e "/seeds =/ s^= .*^= \"$SEEDS\"^" $NODE_HOME/config/config.toml
 
 if $STATE_SYNC; then
-    echo "Configuring state sync..."
-    CURRENT_BLOCK=$(curl -s $SYNC_RPC_1/block | jq -r '.result.block.header.height') || { echo "Failed to fetch current block"; exit 1; }
-    TRUST_HEIGHT=$(($CURRENT_BLOCK - 1000))
-    TRUST_BLOCK=$(curl -s $SYNC_RPC_1/block\?height\=$TRUST_HEIGHT) || { echo "Failed to fetch trust block"; exit 1; }
-    TRUST_HASH=$(echo $TRUST_BLOCK | jq -r '.result.block_id.hash')
-    sed -i -e '/enable =/ s/= .*/= true/' $NODE_HOME/config/config.toml
-    sed -i -e '/trust_period =/ s/= .*/= "8h0m0s"/' $NODE_HOME/config/config.toml
-    sed -i -e "/trust_height =/ s/= .*/= $TRUST_HEIGHT/" $NODE_HOME/config/config.toml
-    sed -i -e "/trust_hash =/ s/= .*/= \"$TRUST_HASH\"/" $NODE_HOME/config/config.toml
-    sed -i -e "/rpc_servers =/ s^= .*^= \"$SYNC_RPC_SERVERS\"^" $NODE_HOME/config/config.toml
+  echo "Configuring state sync..."
+  CURRENT_BLOCK=$(curl -s $SYNC_RPC_1/block | jq -r '.result.block.header.height') || {
+    echo "Failed to fetch current block"
+    exit 1
+  }
+  TRUST_HEIGHT=$(($CURRENT_BLOCK - 1000))
+  TRUST_BLOCK=$(curl -s $SYNC_RPC_1/block\?height\=$TRUST_HEIGHT) || {
+    echo "Failed to fetch trust block"
+    exit 1
+  }
+  TRUST_HASH=$(echo $TRUST_BLOCK | jq -r '.result.block_id.hash')
+  sed -i -e '/enable =/ s/= .*/= true/' $NODE_HOME/config/config.toml
+  sed -i -e '/trust_period =/ s/= .*/= "8h0m0s"/' $NODE_HOME/config/config.toml
+  sed -i -e "/trust_height =/ s/= .*/= $TRUST_HEIGHT/" $NODE_HOME/config/config.toml
+  sed -i -e "/trust_hash =/ s/= .*/= \"$TRUST_HASH\"/" $NODE_HOME/config/config.toml
+  sed -i -e "/rpc_servers =/ s^= .*^= \"$SYNC_RPC_SERVERS\"^" $NODE_HOME/config/config.toml
 else
-    echo "Skipping state sync..."
+  echo "Skipping state sync..."
 fi
 
 # # Replace genesis file
 echo "Downloading genesis file..."
 echo "Downloading genesis file..."
-wget $GENESIS_URL || { echo "Failed to download genesis file"; exit 1; }
+wget $GENESIS_URL || {
+  echo "Failed to download genesis file"
+  exit 1
+}
 cp $CHAIN_ID.json $NODE_HOME/config/genesis.json
 
 SERVICE_PATH=/etc/systemd/system/$SERVICE_NAME.service
