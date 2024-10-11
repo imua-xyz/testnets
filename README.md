@@ -7,7 +7,7 @@
 - **Current Exocore Version:** [`v1.0.5`](https://github.com/ExocoreNetwork/exocore/releases/tag/v1.0.5) (upgraded with genesis at height `8085104`)
 - **Current Price Feeder Version:** [`v0.1.9`](https://github.com/ExocoreNetwork/price-feeder/releases/tag/v0.1.9)
 - **Launch Exocore Version:** `release/v1.0.5`
-- **Genesis File:** [in this repository](genesis.json), verify with `shasum -a 256 genesis.json`
+- **Genesis File:** [in this repository](genesis/exocoretestnet_233-6.json), verify with `shasum -a 256 genesis.json`
 - **Genesis sha256sum**: `73aa3af1193a8d434752b4d81db851b02c40429a58d335deb628d2f90f945648`
 
 ### Endpoints
@@ -44,4 +44,4 @@ Run the script provided in this repo to join the provider chain:
 
 #### State Sync Option
 
-* By default, the script will attempt to use state sync to catch up quickly to the current height. To turn off state sync, set `STATE_SYNC` to `false`.
+* By default, the script will sync from genesis block, to turn on state sync to catch up quickly to the current height, set `STATE_SYNC` to `true`.
