@@ -37,8 +37,8 @@
           "imua_chain_index": "0",
           "finalization_blocks": "10",
           "layer_zero_chain_id": "0",
-          "meta_info": "The (native) Exocore chain",
-          "name": "Exocore",
+          "meta_info": "The (native) Imuachain",
+          "name": "Imuachain",
           "signature_type": ""
         },
         {
@@ -79,8 +79,8 @@
             "decimals": 18,
             "imua_chain_index": "1",
             "layer_zero_chain_id": "0",
-            "meta_info": "EXO native to the Exocore chain",
-            "name": "Native EXO token",
+            "meta_info": "IMUA native to Imuachain",
+            "name": "Native IMUA token",
             "symbol": "IMUA"
           },
           "staking_total_amount": "0"
@@ -91,7 +91,7 @@
             "decimals": 18,
             "imua_chain_index": "0",
             "layer_zero_chain_id": "40217",
-            "meta_info": "Exocore Holesky ETH",
+            "meta_info": "Imuachain Holesky LST ETH",
             "name": "exo ETH",
             "symbol": "exoETH"
           },
@@ -103,7 +103,7 @@
             "decimals": 18,
             "imua_chain_index": "0",
             "layer_zero_chain_id": "40161",
-            "meta_info": "Exocore testnet ETH",
+            "meta_info": "Imuachain Sepolia LST ETH",
             "name": "exoETH",
             "symbol": "exoETH"
           },
