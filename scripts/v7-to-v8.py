@@ -224,11 +224,6 @@ def upgrade_genesis(data: Any, blank_path: str) -> Any:
 def main():
     # Exported file path
     input_path = "/home/user/Downloads/Telegram Desktop/export_testnetV7_11543600.json"
-
-    # Create output path with 'im' suffix
-    directory = os.path.dirname(input_path)
-    filename = os.path.basename(input_path)
-    name, ext = os.path.splitext(filename)
     output_path = "/home/user/Documents/Work/Exocore/testnets/genesis/imuachaintestnet_233-8.json"
 
     # Read input JSON
