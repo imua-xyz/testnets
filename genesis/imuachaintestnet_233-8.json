@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2025-02-27T07:00:00Z",
+  "genesis_time": "2025-02-27T03:21:10.246584113Z",
   "chain_id": "imuachaintestnet_233-8",
   "initial_height": "11543601",
   "consensus_params": {
@@ -37,8 +37,8 @@
           "imua_chain_index": "0",
           "finalization_blocks": "10",
           "layer_zero_chain_id": "0",
-          "meta_info": "The (native) Imuachain",
-          "name": "Imuachain",
+          "meta_info": "The (native) Exocore chain",
+          "name": "Exocore",
           "signature_type": ""
         },
         {
@@ -79,9 +79,21 @@
             "decimals": 18,
             "imua_chain_index": "1",
             "layer_zero_chain_id": "0",
-            "meta_info": "IMUA native to Imuachain",
-            "name": "Native IMUA token",
+            "meta_info": "EXO native to the Exocore chain",
+            "name": "Native EXO token",
             "symbol": "IMUA"
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0x0e1bce38e947d9bbd5450654b6b3da3f8462cf96c5a173126c6e4b286d9666bf",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
           },
           "staking_total_amount": "0"
         },
@@ -91,7 +103,7 @@
             "decimals": 18,
             "imua_chain_index": "0",
             "layer_zero_chain_id": "40217",
-            "meta_info": "Imuachain Holesky ETH",
+            "meta_info": "Exocore Holesky ETH",
             "name": "exo ETH",
             "symbol": "exoETH"
           },
@@ -99,15 +111,75 @@
         },
         {
           "asset_basic_info": {
+            "address": "0x39909751f7664593538a976e58f630b21568283bc0c70182132e3600315d878b",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0x4d2c3c7a7c9d19796e0c65c9638246ac23dc0bd8246b6f573b95bfcf7bae67df",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0x551125551a0a373639835f8b85d1838eaf08ef50b155a16d5733f8a324910899",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
             "address": "0x83e6850591425e3c1e263c054f4466838b9bd9e4",
             "decimals": 18,
             "imua_chain_index": "0",
             "layer_zero_chain_id": "40161",
-            "meta_info": "Imuachain Sepolia ETH",
+            "meta_info": "Exocore testnet ETH",
             "name": "exoETH",
             "symbol": "exoETH"
           },
           "staking_total_amount": "20267900000000000000000"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0x93896f94b43e13cc774d1db886bc5dd7f4e58fa8055da06c04e1e4736fa87790",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "90000000000000"
         },
         {
           "asset_basic_info": {
@@ -120,6 +192,54 @@
             "symbol": "wstETH"
           },
           "staking_total_amount": "3000000000000000000"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0xc625b5c11649d2458307938dda2cba919a4a93c07d7419c1baab9d22b0fbca2a",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0xd2146dc04449147f8fc7bdc2f3151bee8cbfe628309c41c0c7ab8545f850f423",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0xd457b91ba64d7d6653b50e5ca92508d8e09f4d28315a8d9d65694c5c80455534",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
+        },
+        {
+          "asset_basic_info": {
+            "address": "0xd6925fc8453518ea9280b91a684297a08d4b007c92c139b409856f832dba76bb",
+            "decimals": 9,
+            "imua_chain_index": "0",
+            "layer_zero_chain_id": "40168",
+            "meta_info": "USDC on Solana",
+            "name": "USDC",
+            "symbol": ""
+          },
+          "staking_total_amount": "0"
         },
         {
           "asset_basic_info": {
@@ -955,6 +1075,19 @@
         {
           "deposits": [
             {
+              "asset_id": "0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
+              "info": {
+                "pending_undelegation_amount": "0",
+                "total_deposit_amount": "90000000000000",
+                "withdrawable_amount": "30000000000000"
+              }
+            }
+          ],
+          "staker": "0xf590705f01036905f4d208d1416e1bd6debca9b86675173d82817f3d4f7d340e_0x9ce8"
+        },
+        {
+          "deposits": [
+            {
               "asset_id": "0x83e6850591425e3c1e263c054f4466838b9bd9e4_0x9ce1",
               "info": {
                 "pending_undelegation_amount": "0",
@@ -1343,6 +1476,15 @@
                 "pending_undelegation_amount": "0",
                 "total_amount": "4300000000000000000000",
                 "total_share": "4300000000000000000000.000000000000000000"
+              }
+            },
+            {
+              "asset_id": "0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
+              "info": {
+                "operator_share": "0.000000000000000000",
+                "pending_undelegation_amount": "0",
+                "total_amount": "60000000000000",
+                "total_share": "60000000000000.000000000000000000"
               }
             },
             {
@@ -7287,7 +7429,7 @@
     "consensus": null,
     "crisis": {
       "constant_fee": {
-        "denom": "hua",
+        "denom": "stake",
         "amount": "1000"
       }
     },
@@ -7870,6 +8012,13 @@
           }
         },
         {
+          "key": "0xf590705f01036905f4d208d1416e1bd6debca9b86675173d82817f3d4f7d340e_0x9ce8/0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8/im1lzf5247us2xwhg29mutpx5gyq4aemwqgg3ypwm",
+          "states": {
+            "undelegatable_share": "60000000000000.000000000000000000",
+            "wait_undelegation_amount": "0"
+          }
+        },
+        {
           "key": "0xffb260e5d3c3573eaef01a370d5d52798db2f401_0x9ce1/0x83e6850591425e3c1e263c054f4466838b9bd9e4_0x9ce1/im1kkdtwacs536k50dka3xd8ty042p2xctrzrp58w",
           "states": {
             "undelegatable_share": "1000000000000000000.000000000000000000",
@@ -8051,6 +8200,12 @@
             "0x6bc4938f35e12690d833b7d6fdf52e289cd78f1d_0x9ce1",
             "0x0b34c4d876cd569129cf56bafabb3f9e97a4ff42_0x9ce1",
             "0x7e7a484a60f3bd5e8276d01118e932f36d4ad5f8_0x9ce1"
+          ]
+        },
+        {
+          "key": "im1lzf5247us2xwhg29mutpx5gyq4aemwqgg3ypwm/0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
+          "stakers": [
+            "0xf590705f01036905f4d208d1416e1bd6debca9b86675173d82817f3d4f7d340e_0x9ce8"
           ]
         },
         {
@@ -8242,6 +8397,10 @@
           "public_key": "0x956e70f7d9343c0bb93009552bc31df0bd97f6a07eb9db4aed4a227879507da1"
         },
         {
+          "power": "63645",
+          "public_key": "0xf30ef6829c8381634bee7a1afa6a8a41f8785784120ad6657c56471cf6a36f2c"
+        },
+        {
           "power": "55544",
           "public_key": "0x52958658dcc927ec3341a09881ae8b23a4cc11eaa10cb65dacc74dab81575a76"
         },
@@ -8262,6 +8421,10 @@
           "public_key": "0xedda6fa5abd359ed99e98b7408bcebdb5161ab0809a3925dcae7f90916378766"
         },
         {
+          "power": "8542",
+          "public_key": "0xcd12857b893fef9e54029746c64800e7a4b390f4da3cbe4dda5793041e0b2439"
+        },
+        {
           "power": "5893",
           "public_key": "0xff073cd91b327cb67cb9793a40312bca2c96ba5a621f90c199a338da57ed48aa"
         },
@@ -8270,8 +8433,16 @@
           "public_key": "0x41be6a5c66f788a3e68fc0297aefc59f6a2a1be45b73857343b74586867a0183"
         },
         {
+          "power": "3540",
+          "public_key": "0x7ac50a0773b6c4f3e34b1a48e9c17d673b55ef3db7755c8e667a9147d0891bdb"
+        },
+        {
           "power": "3521",
           "public_key": "0x6a2e85a6dad4319d4d8925167514b1f8a80218bf47bada1bb8e26d2157260cb4"
+        },
+        {
+          "power": "3505",
+          "public_key": "0x52cb72934fc571998b47b12723412695212f36c8761491e40e2aa63cc9ffd706"
         },
         {
           "power": "3467",
@@ -8307,7 +8478,23 @@
         },
         {
           "power": "1770",
+          "public_key": "0x1b371c60af2dbadb87ea5a00ca3e63b0c5585fc7d7719a289ad6d231155fc7cc"
+        },
+        {
+          "power": "1770",
           "public_key": "0xa8f35f5f786382b552f6359de04441fa0c55b08f919dbe0a1d5d44fdc5d88f48"
+        },
+        {
+          "power": "1752",
+          "public_key": "0x134e701a7b0fdc79876b5cec98505386dc6a5d801e539b9a411ab686bbc5a950"
+        },
+        {
+          "power": "1735",
+          "public_key": "0xc9319cddd2a67af02eaf5f1bb77084594c2db7c75e7c59bce06e69edfebc61bb"
+        },
+        {
+          "power": "1681",
+          "public_key": "0x8947d2fc689f12f57f12db74dcdd040f0b0396f6d45fc2b5a74151305ba2f2cb"
         },
         {
           "power": "1647",
@@ -8318,8 +8505,20 @@
           "public_key": "0x3bc802f1cb43eb6168f44162157e3cd058e0348d9f310768d199bd3169634b1b"
         },
         {
+          "power": "1565",
+          "public_key": "0xdc715f60c524f7b0a9c2ff8c9dec63d538fb7b0d8eaf5c219b149d15c67452d7"
+        },
+        {
+          "power": "1502",
+          "public_key": "0x4272c598cd8c391382666b232ce5af01bc80a9e8a3dc55a635fc323ae805f48d"
+        },
+        {
           "power": "1356",
           "public_key": "0x709340412bb08c673d3da3353e477921ac1008efc60cdd3aebf4b6b629df1c54"
+        },
+        {
+          "power": "1315",
+          "public_key": "0xaff585ea4f1e2cf8fefc2c67286b0237c84575b7d26cbcde68b2acc1542f3b74"
         }
       ]
     },
@@ -19813,24 +20012,18 @@
       "deposits": [],
       "votes": [],
       "proposals": [],
-      "deposit_params": {
-        "min_deposit": [
-          {
-            "denom": "hua"
-          }
-        ]
-      },
+      "deposit_params": null,
       "voting_params": null,
       "tally_params": null,
       "params": {
         "min_deposit": [
           {
-            "denom": "hua",
+            "denom": "stake",
             "amount": "10000000"
           }
         ],
-        "max_deposit_period": "30s",
-        "voting_period": "30s",
+        "max_deposit_period": "172800s",
+        "voting_period": "172800s",
         "quorum": "0.334000000000000000",
         "threshold": "0.500000000000000000",
         "veto_threshold": "0.334000000000000000",
@@ -19878,7 +20071,7 @@
       "params": {
         "mint_denom": "hua",
         "epoch_reward": "20",
-        "epoch_identifier": "minute"
+        "epoch_identifier": "day"
       }
     },
     "imslash": {
@@ -22053,6 +22246,14 @@
             "start_base_block": "11543621",
             "start_round_id": "1",
             "token_id": "4"
+          },
+          {
+            "end_block": "0",
+            "interval": "10",
+            "rule_id": "1",
+            "start_base_block": "11543621",
+            "start_round_id": "1",
+            "token_id": "5"
           }
         ],
         "tokens": [
@@ -22079,6 +22280,14 @@
             "contract_address": "0xB82381A3fBD3FaFA77B3a7bE693342618240067b",
             "decimal": 8,
             "name": "wstETH"
+          },
+          {
+            "active": true,
+            "asset_id": "0xe675b3175b379e3d3daefd5b50af8714dc18a3b028dd389ab0db39f633b0f2cb_0x9ce8,0xd457b91ba64d7d6653b50e5ca92508d8e09f4d28315a8d9d65694c5c80455534_0x9ce8,0x551125551a0a373639835f8b85d1838eaf08ef50b155a16d5733f8a324910899_0x9ce8,0x93896f94b43e13cc774d1db886bc5dd7f4e58fa8055da06c04e1e4736fa87790_0x9ce8,0xc625b5c11649d2458307938dda2cba919a4a93c07d7419c1baab9d22b0fbca2a_0x9ce8,0xd2146dc04449147f8fc7bdc2f3151bee8cbfe628309c41c0c7ab8545f850f423_0x9ce8,0xd6925fc8453518ea9280b91a684297a08d4b007c92c139b409856f832dba76bb_0x9ce8,0x4d2c3c7a7c9d19796e0c65c9638246ac23dc0bd8246b6f573b95bfcf7bae67df_0x9ce8,0x39909751f7664593538a976e58f630b21568283bc0c70182132e3600315d878b_0x9ce8,0x0e1bce38e947d9bbd5450654b6b3da3f8462cf96c5a173126c6e4b286d9666bf_0x9ce8,0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
+            "chain_id": "1",
+            "contract_address": "",
+            "decimal": 8,
+            "name": "USDC"
           },
           {
             "active": true,

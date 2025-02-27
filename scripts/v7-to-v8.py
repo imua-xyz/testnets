@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+import math
 import json
 import bech32
 from typing import Any
@@ -160,8 +161,34 @@ def upgrade_genesis(data: Any, blank_path: str) -> Any:
     # drop slash states
     blank_data['app_state']['operator']['slash_states'] = []
     # unjail all validators
+    unjailed = []
     for state in blank_data['app_state']['operator']['opt_states']:
         state['opt_info']['jailed'] = False
+        addr = state['key'].split("/")[0]
+        unjailed.append(addr)
+    for operator in unjailed:
+        # find the usd value
+        obj = [ o for o in blank_data['app_state']['operator']['operator_usd_values'] if o['key'] == f"0xedb7a6077ab45df72e57bc2ea091f9183429720e/{operator}" ]
+        if len(obj) == 0:
+            raise Exception(f"operator {operator} not found in operator_usd_values")
+        usd_value = int( math.floor( float( obj[0]['opted_usd_value']['active_usd_value'] ) ) )
+        if usd_value == 0:
+            continue
+        # and the consensus key
+        obj2 = [ o for o in blank_data['app_state']['operator']['operator_records'] if o['operator_address'] == operator ]
+        if len(obj2) == 0:
+            raise Exception(f"operator {operator} not found in operator_records")
+        cons_key = obj2[0]['chains'][0][ 'consensus_key' ]
+        # check that cons key does not exist in the validator set
+        if any(v['public_key'] == cons_key for v in blank_data['app_state']['dogfood']['val_set']):
+            continue
+        # append to validator set
+        blank_data['app_state']['dogfood']['val_set'].append({
+            'power': str(usd_value),
+            'public_key': cons_key,
+        })
+    # sort blank_data by power and then public key descending
+    blank_data['app_state']['dogfood']['val_set'].sort(key=lambda x: (-int(x['power']), x['public_key']), reverse=False)
 
     # x/oracle -> copy
     blank_data['app_state']['oracle']['params'] = data['app_state']['oracle']['params']
@@ -202,7 +229,7 @@ def main():
     directory = os.path.dirname(input_path)
     filename = os.path.basename(input_path)
     name, ext = os.path.splitext(filename)
-    output_path = os.path.join(directory, f"{name}_im{ext}")
+    output_path = "/home/user/Documents/Work/Exocore/testnets/genesis/imuachaintestnet_233-8.json"
 
     # Read input JSON
     with open(input_path, 'r') as f:
@@ -220,7 +247,6 @@ def main():
     processed_data = upgrade_genesis(processed_data, blank_path)
 
     # Write output JSON
-    output_path = os.path.join(directory, f"{name}_upgraded{ext}")
     with open(output_path, 'w') as f:
         json.dump(processed_data, f, indent=2)
 
