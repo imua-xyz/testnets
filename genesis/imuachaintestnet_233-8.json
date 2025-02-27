@@ -123,18 +123,6 @@
         },
         {
           "asset_basic_info": {
-            "address": "0xe675b3175b379e3d3daefd5b50af8714dc18a3b028dd389ab0db39f633b0f2cb",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "Jito2 on solana",
-            "name": "Jito2",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
             "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
             "decimals": 18,
             "imua_chain_index": "1",
