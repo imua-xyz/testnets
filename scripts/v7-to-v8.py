@@ -157,6 +157,8 @@ def upgrade_genesis(data: Any, blank_path: str) -> Any:
             raise Exception(f"operator {operator['operator_address']} has approve_addr {approve_addr} != operator_address {addr}")
         operator['operator_info']['earnings_addr'] = operator['operator_address']
         operator['operator_info']['approve_addr'] = operator['operator_address']
+    # drop slash states
+    blank_data['app_state']['operator']['slash_states'] = []
 
     # x/oracle -> copy
     blank_data['app_state']['oracle']['params'] = data['app_state']['oracle']['params']
