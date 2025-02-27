@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2025-02-27T03:21:10.246584113Z",
+  "genesis_time": "2025-02-27T07:00:00Z",
   "chain_id": "imuachaintestnet_233-8",
   "initial_height": "11543601",
   "consensus_params": {
