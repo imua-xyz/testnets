@@ -118,8 +118,7 @@ def upgrade_genesis(data: Any, blank_path: str) -> Any:
     # x/dogfood to be filled by generate.mjs in addition to the data below
     blank_data['app_state']['dogfood'] = data['app_state']['dogfood']
 
-    # x/epochs -> copy? or start counting from genesis again? best to copy.
-    blank_data['app_state']['epochs']['epochs'] = data['app_state']['epochs']['epochs']
+    # x/epochs -> do not copy
 
     # x/feegrant simple copy
     blank_data['app_state']['feegrant'] = data['app_state']['feegrant']
@@ -212,7 +211,7 @@ def main():
         processed_data['app_state']['imslash']['params'] = {}
 
     # Upgrade the file
-    blank_path = "/home/user/.tmp-imuad/config/genesis.json"
+    blank_path = "/home/user/.imuad/config/genesis.json"
     processed_data = upgrade_genesis(processed_data, blank_path)
 
     # Write output JSON
