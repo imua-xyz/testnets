@@ -159,6 +159,9 @@ def upgrade_genesis(data: Any, blank_path: str) -> Any:
         operator['operator_info']['approve_addr'] = operator['operator_address']
     # drop slash states
     blank_data['app_state']['operator']['slash_states'] = []
+    # unjail all validators
+    for state in blank_data['app_state']['operator']['opt_states']:
+        state['opt_info']['jailed'] = False
 
     # x/oracle -> copy
     blank_data['app_state']['oracle']['params'] = data['app_state']['oracle']['params']

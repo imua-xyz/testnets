@@ -21565,7 +21565,7 @@
         {
           "key": "im1082pg2cz3uhgksun7lgq4m6jy9vpah28qlh4gn/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8132278",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21583,7 +21583,7 @@
         {
           "key": "im130wdnzwdkphlk3vswdauvces0hmp2jr8v45tgk/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8695643",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21664,7 +21664,7 @@
         {
           "key": "im1apa729n0q7np6qy2hu7cp4mjfhk5hz203cjg53/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "9475269",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21691,7 +21691,7 @@
         {
           "key": "im1dglm8gy5ve42guvp3m3gdehrej9qg3jf7mnl67/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "9168690",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21718,7 +21718,7 @@
         {
           "key": "im1grs7tmk7pr7387xmhmg3uddu9f67c7pasd2584/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8351963",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21781,7 +21781,7 @@
         {
           "key": "im1mypngwuj5jukpuc7e5yyd04ea8y4yxkvaff0fu/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8328709",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21799,7 +21799,7 @@
         {
           "key": "im1nvgrxlcn854xyrf0jzmrl353gduznvne5rng3l/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8134215",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21808,7 +21808,7 @@
         {
           "key": "im1p33ghca2hp5phwfqf3dk5vqpae53x3phlunj54/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8110227",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21817,7 +21817,7 @@
         {
           "key": "im1pcdcr25he73v0cdnxkd9a2yjk0z7lqduf0eu04/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8105316",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21826,7 +21826,7 @@
         {
           "key": "im1ph0r97t08cdl4ehdkphe9sum05u5cznjuylczh/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8980530",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
@@ -21943,7 +21943,7 @@
         {
           "key": "im1z8jqfltggdn9grwaxwy4dt5ee378skzxhfh7rv/0xedb7a6077ab45df72e57bc2ea091f9183429720e",
           "opt_info": {
-            "jailed": true,
+            "jailed": false,
             "opted_in_height": "8319426",
             "opted_out_height": "18446744073709551615",
             "slash_contract": ""
