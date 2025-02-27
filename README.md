@@ -4,9 +4,9 @@
 
 - **Chain-ID**: `exocoretestnet_233-6`
 - **Launch date**: 2024-10-08
-- **Current Exocore Version:** [`v1.0.5`](https://github.com/ExocoreNetwork/exocore/releases/tag/v1.0.5) (upgraded with genesis at height `8085104`)
+- **Current Exocore Version:** [`v1.0.6`](https://github.com/ExocoreNetwork/exocore/releases/tag/v1.0.6) (upgraded with genesis at height `8085104`)
 - **Current Price Feeder Version:** [`v0.1.9`](https://github.com/ExocoreNetwork/price-feeder/releases/tag/v0.1.9)
-- **Launch Exocore Version:** `release/v1.0.5`
+- **Launch Exocore Version:** `release/v1.0.6`
 - **Genesis File:** [in this repository](genesis/exocoretestnet_233-6.json), verify with `shasum -a 256 genesis.json`
 - **Genesis sha256sum**: `73aa3af1193a8d434752b4d81db851b02c40429a58d335deb628d2f90f945648`
 
