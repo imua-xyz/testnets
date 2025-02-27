@@ -87,18 +87,6 @@
         },
         {
           "asset_basic_info": {
-            "address": "0x0e1bce38e947d9bbd5450654b6b3da3f8462cf96c5a173126c6e4b286d9666bf",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
             "address": "0x1e867667ef16111047c2c7f6adf4612bdf80064d",
             "decimals": 18,
             "imua_chain_index": "0",
@@ -108,42 +96,6 @@
             "symbol": "exoETH"
           },
           "staking_total_amount": "1010000001000000000000000000"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0x39909751f7664593538a976e58f630b21568283bc0c70182132e3600315d878b",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0x4d2c3c7a7c9d19796e0c65c9638246ac23dc0bd8246b6f573b95bfcf7bae67df",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0x551125551a0a373639835f8b85d1838eaf08ef50b155a16d5733f8a324910899",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
         },
         {
           "asset_basic_info": {
@@ -159,30 +111,6 @@
         },
         {
           "asset_basic_info": {
-            "address": "0x93896f94b43e13cc774d1db886bc5dd7f4e58fa8055da06c04e1e4736fa87790",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "90000000000000"
-        },
-        {
-          "asset_basic_info": {
             "address": "0xb82381a3fbd3fafa77b3a7be693342618240067b",
             "decimals": 18,
             "imua_chain_index": "1",
@@ -192,54 +120,6 @@
             "symbol": "wstETH"
           },
           "staking_total_amount": "3000000000000000000"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0xc625b5c11649d2458307938dda2cba919a4a93c07d7419c1baab9d22b0fbca2a",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0xd2146dc04449147f8fc7bdc2f3151bee8cbfe628309c41c0c7ab8545f850f423",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0xd457b91ba64d7d6653b50e5ca92508d8e09f4d28315a8d9d65694c5c80455534",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
-        },
-        {
-          "asset_basic_info": {
-            "address": "0xd6925fc8453518ea9280b91a684297a08d4b007c92c139b409856f832dba76bb",
-            "decimals": 9,
-            "imua_chain_index": "0",
-            "layer_zero_chain_id": "40168",
-            "meta_info": "USDC on Solana",
-            "name": "USDC",
-            "symbol": ""
-          },
-          "staking_total_amount": "0"
         },
         {
           "asset_basic_info": {
@@ -1075,19 +955,6 @@
         {
           "deposits": [
             {
-              "asset_id": "0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
-              "info": {
-                "pending_undelegation_amount": "0",
-                "total_deposit_amount": "90000000000000",
-                "withdrawable_amount": "30000000000000"
-              }
-            }
-          ],
-          "staker": "0xf590705f01036905f4d208d1416e1bd6debca9b86675173d82817f3d4f7d340e_0x9ce8"
-        },
-        {
-          "deposits": [
-            {
               "asset_id": "0x83e6850591425e3c1e263c054f4466838b9bd9e4_0x9ce1",
               "info": {
                 "pending_undelegation_amount": "0",
@@ -1476,15 +1343,6 @@
                 "pending_undelegation_amount": "0",
                 "total_amount": "4300000000000000000000",
                 "total_share": "4300000000000000000000.000000000000000000"
-              }
-            },
-            {
-              "asset_id": "0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
-              "info": {
-                "operator_share": "0.000000000000000000",
-                "pending_undelegation_amount": "0",
-                "total_amount": "60000000000000",
-                "total_share": "60000000000000.000000000000000000"
               }
             },
             {
@@ -8012,13 +7870,6 @@
           }
         },
         {
-          "key": "0xf590705f01036905f4d208d1416e1bd6debca9b86675173d82817f3d4f7d340e_0x9ce8/0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8/im1lzf5247us2xwhg29mutpx5gyq4aemwqgg3ypwm",
-          "states": {
-            "undelegatable_share": "60000000000000.000000000000000000",
-            "wait_undelegation_amount": "0"
-          }
-        },
-        {
           "key": "0xffb260e5d3c3573eaef01a370d5d52798db2f401_0x9ce1/0x83e6850591425e3c1e263c054f4466838b9bd9e4_0x9ce1/im1kkdtwacs536k50dka3xd8ty042p2xctrzrp58w",
           "states": {
             "undelegatable_share": "1000000000000000000.000000000000000000",
@@ -8200,12 +8051,6 @@
             "0x6bc4938f35e12690d833b7d6fdf52e289cd78f1d_0x9ce1",
             "0x0b34c4d876cd569129cf56bafabb3f9e97a4ff42_0x9ce1",
             "0x7e7a484a60f3bd5e8276d01118e932f36d4ad5f8_0x9ce1"
-          ]
-        },
-        {
-          "key": "im1lzf5247us2xwhg29mutpx5gyq4aemwqgg3ypwm/0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
-          "stakers": [
-            "0xf590705f01036905f4d208d1416e1bd6debca9b86675173d82817f3d4f7d340e_0x9ce8"
           ]
         },
         {
@@ -22246,14 +22091,6 @@
             "start_base_block": "11543621",
             "start_round_id": "1",
             "token_id": "4"
-          },
-          {
-            "end_block": "0",
-            "interval": "10",
-            "rule_id": "1",
-            "start_base_block": "11543621",
-            "start_round_id": "1",
-            "token_id": "5"
           }
         ],
         "tokens": [
@@ -22280,14 +22117,6 @@
             "contract_address": "0xB82381A3fBD3FaFA77B3a7bE693342618240067b",
             "decimal": 8,
             "name": "wstETH"
-          },
-          {
-            "active": true,
-            "asset_id": "0xe675b3175b379e3d3daefd5b50af8714dc18a3b028dd389ab0db39f633b0f2cb_0x9ce8,0xd457b91ba64d7d6653b50e5ca92508d8e09f4d28315a8d9d65694c5c80455534_0x9ce8,0x551125551a0a373639835f8b85d1838eaf08ef50b155a16d5733f8a324910899_0x9ce8,0x93896f94b43e13cc774d1db886bc5dd7f4e58fa8055da06c04e1e4736fa87790_0x9ce8,0xc625b5c11649d2458307938dda2cba919a4a93c07d7419c1baab9d22b0fbca2a_0x9ce8,0xd2146dc04449147f8fc7bdc2f3151bee8cbfe628309c41c0c7ab8545f850f423_0x9ce8,0xd6925fc8453518ea9280b91a684297a08d4b007c92c139b409856f832dba76bb_0x9ce8,0x4d2c3c7a7c9d19796e0c65c9638246ac23dc0bd8246b6f573b95bfcf7bae67df_0x9ce8,0x39909751f7664593538a976e58f630b21568283bc0c70182132e3600315d878b_0x9ce8,0x0e1bce38e947d9bbd5450654b6b3da3f8462cf96c5a173126c6e4b286d9666bf_0x9ce8,0xaf1f4134773b5460a70c1992f5f09f77c4129516b7a8f6cd7afbdc25158057fa_0x9ce8",
-            "chain_id": "1",
-            "contract_address": "",
-            "decimal": 8,
-            "name": "USDC"
           },
           {
             "active": true,
