@@ -8,7 +8,7 @@ fi
 # Configuration
 # You can have these values set in .env file, and run 'source .env' before running this script.
 # ***
-NODE_HOME=${NODE_HOME:-$HOME/.exocored}
+NODE_HOME=${NODE_HOME:-$HOME/.imuad}
 NODE_MONIKER=${NODE_MONIKER:-release-testnet}
 STATE_SYNC=${STATE_SYNC:-true}
 STATE_SYNC=$(echo "$STATE_SYNC" | tr '[:upper:]' '[:lower:]')
@@ -21,8 +21,8 @@ fi
 
 # Exocore configuration
 # Default values for Exocore testnet
-SERVICE_NAME=exocore
-EXOCORE_VERSION=1.0.5
+SERVICE_NAME=imuad
+EXOCORE_VERSION=1.1.0
 # Determine OS and architecture
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -32,13 +32,13 @@ fi
 if [ "$ARCH" == "aarch64" ]; then
   ARCH="arm64"
 fi
-CHAIN_BINARY_URL=https://github.com/ExocoreNetwork/exocore/releases/download/v$EXOCORE_VERSION/exocore_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz
+CHAIN_BINARY_URL=https://github.com/imua-xyz/imuachain/releases/download/v$EXOCORE_VERSION/imuachain_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz
 GAS_PRICE=0.0001hua
 # ***
 
-CHAIN_BINARY='exocored'
-CHAIN_ID=exocoretestnet_233-6
-GENESIS_URL=https://github.com/ExocoreNetwork/testnets/raw/main/genesis/$CHAIN_ID.json
+CHAIN_BINARY='imuad'
+CHAIN_ID=imuachaintestnet_233-8
+GENESIS_URL=https://github.com/imua-xyz/testnets/raw/main/genesis/$CHAIN_ID.json
 SEEDS="5dfa2ddc4ce3535ef98470ffe108e6e12edd1955@seed2t.exocore-restaking.com:26656,4cc9c970fe52be4568942693ecfc2ee2cdb63d44@seed1t.exocore-restaking.com:26656"
 SYNC_RPC_1=http://seed1t.exocore-restaking.com:26657
 SYNC_RPC_2=http://seed2t.exocore-restaking.com:26657
@@ -50,14 +50,14 @@ mkdir -p $HOME/go/bin
 export PATH=$PATH:$HOME/go/bin
 
 # Install Exocore binary
-echo "Installing Exocore..."
+echo "Installing Imuad..."
 
 # Download Linux amd64,
 wget $CHAIN_BINARY_URL || {
   echo "Failed to download binary"
   exit 1
 }
-tar -xvf exocore_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz || {
+tar -xvf imuachain_$EXOCORE_VERSION\_${OS}_${ARCH}.tar.gz || {
   echo "Failed to extract binary"
   exit 1
 }
@@ -113,7 +113,7 @@ sudo rm -f ${SERVICE_PATH}
 sudo touch ${SERVICE_PATH}
 
 echo "[Unit]" | sudo tee $SERVICE_PATH
-echo "Description=Exocore service" | sudo tee $SERVICE_PATH -a
+echo "Description=Imuachain service" | sudo tee $SERVICE_PATH -a
 echo "After=network-online.target" | sudo tee $SERVICE_PATH -a
 echo "" | sudo tee $SERVICE_PATH -a
 echo "[Service]" | sudo tee $SERVICE_PATH -a
@@ -133,8 +133,8 @@ sudo systemctl enable --now $SERVICE_NAME.service
 sudo systemctl start $SERVICE_NAME.service
 sudo systemctl restart systemd-journald
 
-# Add go and exocored to the path
-echo "Setting up paths for go and exocored bin..."
+# Add go and imuad to the path
+echo "Setting up paths for go and imuad bin..."
 echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >>.profile
 
 echo "***********************"

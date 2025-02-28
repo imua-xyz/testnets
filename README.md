@@ -1,14 +1,13 @@
-# Exocore Release Testnet
+# Imuachain Release Testnet
 
 ## Testnet Details
 
-- **Chain-ID**: `exocoretestnet_233-6`
-- **Launch date**: 2024-10-08
-- **Current Exocore Version:** [`v1.0.5`](https://github.com/ExocoreNetwork/exocore/releases/tag/v1.0.5) (upgraded with genesis at height `8085104`)
-- **Current Price Feeder Version:** [`v0.1.9`](https://github.com/ExocoreNetwork/price-feeder/releases/tag/v0.1.9)
-- **Launch Exocore Version:** `release/v1.0.5`
-- **Genesis File:** [in this repository](genesis/exocoretestnet_233-6.json), verify with `shasum -a 256 genesis.json`
-- **Genesis sha256sum**: `73aa3af1193a8d434752b4d81db851b02c40429a58d335deb628d2f90f945648`
+- **Chain-ID**: `imuachaintestnet_233-8`
+- **Launch date**: 2025-02-27
+- **Current Exocore Version:** [`v1.1.0`](https://github.com/imua-xyz/imuachain/releases/tag/v1.1.0) 
+- **Current Price Feeder Version:** [`v0.2.4`](https://github.com/imua-xyz/price-feeder/releases/tag/v0.2.4)
+- **Genesis File:** [in this repository](genesis/imuachaintestnet_233-8.json), verify with `shasum -a 256 genesis.json`
+- **Genesis sha256sum**: `961c19865b1d2d582fc71e565a06ac014f983a753560752961115220bdc5a6c2`
 
 ### Endpoints
 
@@ -38,7 +37,7 @@ You can add these in your seeds list.
 ### Bash Script
 
 Run the script provided in this repo to join the provider chain:
-* `join-release-testnet.sh` will create a `exocored` service.
+* `join-release-testnet.sh` will create a `imuad` service.
 * Script must be run either as root or from a sudoer account.
 * Script will attempt to download the amd64 binary from the Exocore [releases](https://github.com/ExocoreNetwork/exocore/releases) page. You can modify the `CHAIN_BINARY_URL` to match your target architecture if needed.
 
