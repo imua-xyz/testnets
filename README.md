@@ -1,47 +1,30 @@
-# Exocore Release Testnet
+# Imuachain Release Testnet
 
 ## Testnet Details
 
-- **Chain-ID**: `exocoretestnet_233-6`
-- **Launch date**: 2024-10-08
-- **Current Exocore Version:** [`v1.0.5`](https://github.com/ExocoreNetwork/exocore/releases/tag/v1.0.5) (upgraded with genesis at height `8085104`)
-- **Current Price Feeder Version:** [`v0.1.9`](https://github.com/ExocoreNetwork/price-feeder/releases/tag/v0.1.9)
-- **Launch Exocore Version:** `release/v1.0.5`
-- **Genesis File:** [in this repository](genesis/exocoretestnet_233-6.json), verify with `shasum -a 256 genesis.json`
-- **Genesis sha256sum**: `73aa3af1193a8d434752b4d81db851b02c40429a58d335deb628d2f90f945648`
+- **Chain-ID**: `imuachaintestnet_233-8`
+- **Launch date**: 2025-02-27
+- **Binary Version:** [`v1.1.0`](https://github.com/imua-xyz/imuachain/releases/tag/v1.1.0)
+- **Price Feeder Version:** [`v0.2.4`](https://github.com/imua-xyz/price-feeder/releases/tag/v0.2.4)
+- **Genesis File:** [stored in this repository](genesis/imuachaintestnet_233-8.json), verify with `sha256sum genesis.json`
+- **Genesis sha256sum**: `961c19865b1d2d582fc71e565a06ac014f983a753560752961115220bdc5a6c2`
 
 ### Endpoints
 
-Endpoints are exposed as subdomains for the sentry and snapshot nodes (described below) as follows:
+Endpoints are exposed as subdomains for the RPC nodes as follows.
 
-* `https://api-cosmos-rest.exocore-restaking.com`
-* `https://api-eth.exocore-restaking.com`
-
-Seed nodes:
-
-1. `seed1t.exocore-restaking.com`
-2. `seed2t.exocore-restaking.com`
+- ETH API: `https://api-cosmos-rest.exocore-restaking.com`
+- Cosmos API: `https://api-eth.exocore-restaking.com`
 
 ### Seeds
 
-You can add these in your seeds list.
+Validators or node operators may use the following as seeds. A list of persistent peers is _not_ made available for public consumption.
 
-```
+```bash
 5dfa2ddc4ce3535ef98470ffe108e6e12edd1955@seed2t.exocore-restaking.com:26656
 4cc9c970fe52be4568942693ecfc2ee2cdb63d44@seed1t.exocore-restaking.com:26656
 ```
 
 ### Block Explorers
 
-  - https://exoscan.org/
-
-### Bash Script
-
-Run the script provided in this repo to join the provider chain:
-* `join-release-testnet.sh` will create a `exocored` service.
-* Script must be run either as root or from a sudoer account.
-* Script will attempt to download the amd64 binary from the Exocore [releases](https://github.com/ExocoreNetwork/exocore/releases) page. You can modify the `CHAIN_BINARY_URL` to match your target architecture if needed.
-
-#### State Sync Option
-
-* By default, the script will sync from genesis block, to turn on state sync to catch up quickly to the current height, set `STATE_SYNC` to `true`.
+- [Blockscout](https://exoscan.org/)
