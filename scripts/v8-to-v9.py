@@ -76,7 +76,7 @@ def upgrade_genesis(data: Any, blank_path,dogfood_addr,chain_id: str) -> Any:
     # unjail all validators
     unjailed = []
     for state in blank_data['app_state']['operator']['opt_states']:
-        if state['opt_info']['jailed'] == True:
+        if state['opt_info'].get('jailed') == True:
             # convert the jailed operator to unjailed
             state['opt_info']['jailed'] = False
             addr = state['key'].split("/")[0]
@@ -117,6 +117,27 @@ def upgrade_genesis(data: Any, blank_path,dogfood_addr,chain_id: str) -> Any:
     ## set a default value for the new field
     blank_data['app_state']['oracle']['params']['piece_size_byte'] = "48000"
     ## todo: there might be other necessary operations for the oracle module 
+    blank_data['app_state']['oracle']['params']['rules'] = [
+        {},
+        {"source_ids":["0"]},
+        {"source_ids":["1"]},
+        {"source_ids":["0"], "nom":{"source_ids":["1"], "minimum": "1"}},
+    ]
+    blank_data['app_state']['oracle']['params']['epoch_identifier'] = "day"
+    tokens = blank_data['app_state']['oracle']['params']['tokens']
+    feeders = blank_data['app_state']['oracle']['params']['token_feeders']
+    initial_height = int(data['initial_height'])
+    for i, feeder in enumerate(feeders):
+        if i == 0:
+            continue  # skip the first feeder
+        token_id = int(feeder['token_id'])
+        token = tokens[token_id]
+        token_name = token.get('name', '')
+        if token_name.startswith('nst'):
+            feeder['rule_id'] = "3"
+        else:
+            feeder['rule_id'] = "2"
+        feeder['start_base_block'] = str(initial_height + 20)
 
     # x/slashing -> missed_blocks, signing_infos to be dropped but others retained
     blank_data['app_state']['slashing'] = data['app_state']['slashing']
