@@ -111,11 +111,14 @@ def upgrade_genesis(exported_file, blank_file, output_file):
 
     feeders = []
     for feeder in oracle['params']['token_feeders']:
-        if int( feeder['token_id'] ) > len(oracle['params']['tokens']):
+        try:
+            token_id = int(feeder.get('token_id', 0))
+            if 0 <= token_id < len(oracle['params']['tokens']):
+                feeders.append(feeder)
+        except (ValueError, TypeError):
+            print(f"Warning: Invalid token_id format in feeder: {feeder}")
             continue
-        feeders.append(feeder)
     oracle['params']['token_feeders'] = feeders
-
     blank_data['app_state']['oracle'] = oracle
 
     # Increment the last number of chain_id by 1
