@@ -130,11 +130,38 @@ def upgrade_genesis(exported_file, blank_file, output_file):
 
     blank_data['validators'] = []
 
+    import os
+    import shutil
+    from datetime import datetime
+
+    def validate_output(data):
+        """Validate the output data structure before writing"""
+        required_fields = ['chain_id', 'app_state', 'initial_height']
+        return all(field in data for field in required_fields)
+
     # Save the updated data to the output file
-    with open(output_file, 'w') as file:
-        json.dump(blank_data, file, indent=2, sort_keys=True)
+    if not validate_output(blank_data):
+        raise ValueError("Invalid output data structure")
+
+    # Create backup if file exists
+    if os.path.exists(output_file):
+        backup = f"{output_file}.{datetime.now().strftime('%Y%m%d_%H%M%S')}.bak"
+        shutil.copy2(output_file, backup)
+
+    try:
+        with open(output_file, 'w') as file:
+            json.dump(blank_data, file, indent=2, sort_keys=True)
+    except Exception as e:
+        raise RuntimeError(f"Failed to write output file: {str(e)}")
 
     print(f"Genesis upgrade completed and saved to {output_file}")
 
-# Call the function with your file paths
-upgrade_genesis('export_testnetV6_1203_og.json', 'blank.json', 'to_bootstrap_v7_1205.json')
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description='Upgrade genesis file from v6 to v7')
+    parser.add_argument('exported_file', help='Path to the exported v6 genesis file')
+    parser.add_argument('blank_file', help='Path to the blank genesis file')
+    parser.add_argument('output_file', help='Path for the output v7 genesis file')
+    args = parser.parse_args()
+    
+    upgrade_genesis(args.exported_file, args.blank_file, args.output_file)
