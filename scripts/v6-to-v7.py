@@ -129,13 +129,23 @@ def upgrade_genesis(exported_file, blank_file, output_file):
     blank_data['app_state']['oracle'] = oracle
 
     # Increment the last number of chain_id by 1
-    chain_id_parts = exported_data['chain_id'].split('-')
-    if len(chain_id_parts) > 1:
-        new_version_number = int(chain_id_parts[-1]) + 1
-        chain_id_parts[-1] = str(new_version_number)
-        new_chain_id = '-'.join(chain_id_parts)
-    else:
-        new_chain_id = chain_id_parts[0] + '-1'
+    try:
+        chain_id = exported_data.get('chain_id', '')
+        if not chain_id:
+            raise ValueError("Empty chain_id in exported data")
+            
+        chain_id_parts = chain_id.split('-')
+        if len(chain_id_parts) > 1:
+            version_str = chain_id_parts[-1]
+            if not version_str.isdigit():
+                raise ValueError(f"Invalid version number format: {version_str}")
+            new_version_number = int(version_str) + 1
+            chain_id_parts[-1] = str(new_version_number)
+            new_chain_id = '-'.join(chain_id_parts)
+        else:
+            new_chain_id = chain_id_parts[0] + '-1'
+    except Exception as e:
+        raise RuntimeError(f"Failed to process chain ID: {str(e)}")
     blank_data['chain_id'] = new_chain_id
 
     blank_data['validators'] = []
