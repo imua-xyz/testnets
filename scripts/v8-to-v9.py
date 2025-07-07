@@ -5,10 +5,12 @@ import json
 import argparse
 from typing import Any
 
-def upgrade_genesis(data: Any, blank_path,dogfood_addr,chain_id: str) -> Any:
-    with open(blank_path, 'r') as f:
-        blank_data = json.load(f)
-
+def upgrade_genesis(data: Any, blank_path, dogfood_addr, chain_id: str) -> Any:
+    try:
+        with open(blank_path, 'r') as f:
+            blank_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        raise Exception(f"Failed to load blank genesis file: {e}")
     # since these states remain unchanged, we can just copy them.
     # chain params -> copy
     blank_data['initial_height'] = data['initial_height']
@@ -19,7 +21,7 @@ def upgrade_genesis(data: Any, blank_path,dogfood_addr,chain_id: str) -> Any:
     blank_data['app_state']['assets'] = data['app_state']['assets']
 
     # x/auth -> copy
-    blank_data['app_state']['auth']= data['app_state']['auth']
+    blank_data['app_state']['auth'] = data['app_state']['auth']
 
     # x/authz -> copy
     blank_data['app_state']['authz'] = data['app_state']['authz']
@@ -76,7 +78,7 @@ def upgrade_genesis(data: Any, blank_path,dogfood_addr,chain_id: str) -> Any:
     # unjail all validators
     unjailed = []
     for state in blank_data['app_state']['operator']['opt_states']:
-        if state['opt_info'].get('jailed') == True:
+        if state['opt_info'].get('jailed'):
             # convert the jailed operator to unjailed
             state['opt_info']['jailed'] = False
             addr = state['key'].split("/")[0]
@@ -156,21 +158,27 @@ def main():
     parser = argparse.ArgumentParser(description="Upgrade a genesis JSON file.")
     parser.add_argument("--input", "-i", required=True, help="Path to input genesis file")
     parser.add_argument("--output", "-o", required=True, help="Path to output upgraded file")
-    parser.add_argument("--blank", "-n", required=False, help="Path to blank genesis file for upgrade reference")
+    parser.add_argument("--blank", "-n", required=True, help="Path to blank genesis file for upgrade reference")
     parser.add_argument("--dogfood_addr", "-d", required=True, help="Dogfood address for testnet")
     parser.add_argument("--chain_id", "-c", required=True, help="Chain id")
     args = parser.parse_args()
 
     # Read input JSON
-    with open(args.input, 'r') as f:
-        genesis_data = json.load(f)
+    try:
+        with open(args.input, 'r') as f:
+            genesis_data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        raise Exception(f"Failed to load input genesis file: {e}")
 
     # Upgrade the file
-    genesis_data = upgrade_genesis(genesis_data, args.blank, args.dogfood_addr,args.chain_id)
+    genesis_data = upgrade_genesis(genesis_data, args.blank, args.dogfood_addr, args.chain_id)
 
     # Write output JSON
-    with open(args.output, 'w') as f:
-        json.dump(genesis_data, f, indent=2)
+    try:
+        with open(args.output, 'w') as f:
+            json.dump(genesis_data, f, indent=2)
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        raise Exception(f"Failed to load output genesis file: {e}")
 
     print(f"Step 2: Upgraded file saved as: {args.output}")
 
