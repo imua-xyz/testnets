@@ -6,12 +6,19 @@ HOLESKY = 0x9d19
 HOLESKY_SUFFIX = f"_{hex(HOLESKY)}"
 
 def upgrade_genesis(exported_file, blank_file, output_file):
-    # Load the content of the two genesis files
-    with open(exported_file, 'r') as file:
-        exported_data = json.load(file)
-    with open(blank_file, 'r') as file:
-        blank_data = json.load(file)
-
+    try:
+        with open(exported_file, 'r') as file:
+            exported_data = json.load(file)
+        with open(blank_file, 'r') as file:
+            blank_data = json.load(file)
+    except FileNotFoundError as e:
+        raise RuntimeError(f"Required genesis file not found: {e.filename}")
+    except PermissionError as e:
+        raise RuntimeError(f"Permission denied accessing file: {e.filename}")
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"Invalid JSON in genesis file: {str(e)}")
+    except Exception as e:
+        raise RuntimeError(f"Unexpected error loading genesis files: {str(e)}")
     # Do not increment initial_height by 1, since that is done during export.
     blank_data['initial_height'] = exported_data['initial_height']
     # copy over gas limit
