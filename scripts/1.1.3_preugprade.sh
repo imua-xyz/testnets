@@ -65,8 +65,8 @@ main() {
   require_cmd jq
 
   NODE_DIR="${NODE_DIR:-/$HOME/.imuad}"
-  UPGRADE_GENESIS="$NODE_DIR/config/new_genesis.json"
-  ORACLE_BEACON_CONFIG="$NODE_DIR/config/1.1.3_oracle_env_beacon.yaml"
+  UPGRADE_GENESIS="$NODE_DIR/config/1.1.3_genesis.json"
+  ORACLE_BEACON_CONFIG="$NODE_DIR/config/1.1.3_oracle_env_beaconchain.yaml"
   ORACLE_FEEDER_YAML="$NODE_DIR/config/1.1.3_oracle_feeder.yaml"
   ORACLE_BEACON_FILENAME="oracle_env_beaconchain.yaml"
   ORACLE_FEEDER_FILENAME="oracle_feeder.yaml"
@@ -76,7 +76,7 @@ main() {
 
   backup_configs "$NODE_DIR" "$CURRENT_TIME"
 
-  replace_file "$UPGRADE_GENESIS" "$NODE_DIR/config/genesis.json" "genesis.json with new_genesis.json"
+  replace_file "$UPGRADE_GENESIS" "$NODE_DIR/config/genesis.json" "genesis.json with 1.1.3_genesis.json"
   replace_file "$ORACLE_BEACON_CONFIG" "$NODE_DIR/config/$ORACLE_BEACON_FILENAME" "$ORACLE_BEACON_FILENAME"
   replace_file "$ORACLE_FEEDER_YAML" "$NODE_DIR/config/$ORACLE_FEEDER_FILENAME" "$ORACLE_FEEDER_FILENAME"
 

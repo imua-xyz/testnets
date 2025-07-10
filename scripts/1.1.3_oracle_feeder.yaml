@@ -14,7 +14,7 @@ tokens:
 sender:
   path: /$HOMEDIR/config
 imua:
-  chainid: imuachaintestnet_233-8
+  chainid: imuachaintestnet_233-9
   appName: imua
   grpc: 127.0.0.1:9090
   ws: !!str ws://127.0.0.1:26657/websocket
