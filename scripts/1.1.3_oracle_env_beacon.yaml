@@ -1,0 +1,6 @@
+urls:
+  beaconchain: !!str https://rpc.ankr.com/premium-http/eth_holesky_beacon/{ANKR_API_KEY}
+  eth: !!str https://eth-holesky.g.alchemy.com/v2/{ALCHEMY_API_KEY}
+nstid:
+  !!str 0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee_0x9d19  
+bootstrap: !!str 0xaE33170215e1D6F4AB15A0A2A20C2755cBAeAfc8  
