@@ -28,6 +28,8 @@ def upgrade_genesis(data: Any, blank_path, dogfood_addr, chain_id: str) -> Any:
 
     # leave x/avs unchanged as default state., since x/dogfood will create the first avs 
     # and there are no others in use
+    # x/bank -> copy
+    blank_data['app_state']['bank'] = data['app_state']['bank']
     # x/capability -> leave unchanged as default state.
     # x/crisis -> leave unchanged as default state.
 
