@@ -77,6 +77,7 @@ main() {
   backup_configs "$NODE_DIR" "$CURRENT_TIME"
 
   replace_file "$UPGRADE_GENESIS" "$NODE_DIR/config/genesis.json" "genesis.json with 1.1.3_genesis.json"
+  # For non-validator please comment out the following two lines
   replace_file "$ORACLE_BEACON_CONFIG" "$NODE_DIR/config/$ORACLE_BEACON_FILENAME" "$ORACLE_BEACON_FILENAME"
   replace_file "$ORACLE_FEEDER_YAML" "$NODE_DIR/config/$ORACLE_FEEDER_FILENAME" "$ORACLE_FEEDER_FILENAME"
 
