@@ -36,11 +36,14 @@ update_chain_id() {
   local chain_id
   chain_id=$(jq -r '.chain_id' "$genesis")
   # check if chain_id contain special characters like / &
-  case "$chain_id" in
-    *[\/&]*)
-      error_exit "Chain ID '$chain_id' contains unsupported characters '/' or '&'. Please fix the chain ID in genesis.json."
-      ;;
-  esac
+-  case "$chain_id" in
+-    *[\/&]*)
+-      error_exit "Chain ID '$chain_id' contains unsupported characters '/' or '&'. Please fix the chain ID in genesis.json."
+-      ;;
+-  esac
++  if [[ "$chain_id" == *"/"* || "$chain_id" == *"&"* ]]; then
++    error_exit "Chain ID '$chain_id' contains unsupported characters '/' or '&'. Please fix the chain ID in genesis.json."
++  fi
   if [[ "$OSTYPE" == "darwin"* ]]; then
     sed -i '' "s/^chain-id = .*/chain-id = \"$chain_id\"/" "$client_toml"
   else
