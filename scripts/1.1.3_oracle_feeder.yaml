@@ -1,0 +1,25 @@
+tokens:
+  - token: ETHUSDT
+    sources: chainlink
+  - token: WSTETHUSDT
+    sources: chainlink
+  - token: USDCUSDT
+    sources: chainlink
+  - token: NSTETH
+    sources: beaconchain
+  - token: SOLUSDT
+    sources: chainlink
+  - token: XRPUSDT
+    sources: chainlink    
+sender:
+  path: /$HOMEDIR/config
+imua:
+  chainid: imuachaintestnet_233-9
+  appName: imua
+  grpc: 127.0.0.1:9090
+  ws: !!str ws://127.0.0.1:26657/websocket
+  rpc: !!str http://127.0.0.1:26657
+debugger:
+  grpc: !!str :50051
+status: 
+  grpc: 50000  
