@@ -176,6 +176,9 @@ def upgrade_genesis(data: Any, blank_path, dogfood_addr, chain_id: str) -> Any:
             each_assetinfo["asset_basic_info"]["symbol"] = "imETH"
         if each_assetinfo["asset_basic_info"]["name"] == "exoETH" or each_assetinfo["asset_basic_info"]["name"] == "exo ETH":
             each_assetinfo["asset_basic_info"]["name"] = "imETH"
+    for each_token in blank_data["app_state"]["oracle"]["params"]["tokens"]:
+        if each_token["name"] == "nstETH":
+            each_token["decimal"] = 9
     return blank_data
 
 
