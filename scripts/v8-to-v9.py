@@ -171,6 +171,11 @@ def upgrade_genesis(data: Any, blank_path, dogfood_addr, chain_id: str) -> Any:
     blank_data = replace_in_obj(blank_data, "0x1E867667Ef16111047C2c7f6ADf4612bDf80064D", "0x2F9db0Fd41429199519Ad57ef4fD7CfecE98D32B")
     blank_data = replace_in_obj(blank_data, "0x1e867667ef16111047c2c7f6adf4612bdf80064d", "0x2f9db0fd41429199519ad57ef4fd7cfece98d32b")
 
+    for each_assetinfo in blank_data["app_state"]["assets"]["tokens"]:
+        if each_assetinfo["asset_basic_info"]["symbol"] == "exoETH":
+            each_assetinfo["asset_basic_info"]["symbol"] = "imETH"
+        if each_assetinfo["asset_basic_info"]["name"] == "exoETH" or each_assetinfo["asset_basic_info"]["name"] == "exo ETH":
+            each_assetinfo["asset_basic_info"]["name"] = "imETH"
     return blank_data
 
 
