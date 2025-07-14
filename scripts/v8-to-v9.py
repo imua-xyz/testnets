@@ -5,6 +5,16 @@ import json
 import argparse
 from typing import Any
 
+def replace_in_obj(obj, old, new):
+    if isinstance(obj, dict):
+        return {k: replace_in_obj(v, old, new) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [replace_in_obj(item, old, new) for item in obj]
+    elif isinstance(obj, str):
+        return obj.replace(old, new)
+    else:
+        return obj
+
 def upgrade_genesis(data: Any, blank_path, dogfood_addr, chain_id: str) -> Any:
     try:
         with open(blank_path, 'r') as f:
@@ -152,6 +162,23 @@ def upgrade_genesis(data: Any, blank_path, dogfood_addr, chain_id: str) -> Any:
     # x/upgrade -> leave unchanged as default state.
     # x/vesting -> leave unchanged as default state.
 
+    # replace all exoETH contract address for sepolia and holesky
+    # sepolia 0x83E6850591425e3C1E263c054f4466838B9Bd9e4 to 0xF79F563571f7D8122611D0219A0d5449B5304F79
+    # holesky 0x1E867667Ef16111047C2c7f6ADf4612bDf80064D to 0x2F9db0Fd41429199519Ad57ef4fD7CfecE98D32B
+    blank_data = replace_in_obj(blank_data, "0x83E6850591425e3C1E263c054f4466838B9Bd9e4", "0xF79F563571f7D8122611D0219A0d5449B5304F79")
+    blank_data = replace_in_obj(blank_data, "0x83e6850591425e3c1e263c054f4466838b9bd9e4", "0xf79f563571f7d8122611d0219a0d5449b5304f79")
+    
+    blank_data = replace_in_obj(blank_data, "0x1E867667Ef16111047C2c7f6ADf4612bDf80064D", "0x2F9db0Fd41429199519Ad57ef4fD7CfecE98D32B")
+    blank_data = replace_in_obj(blank_data, "0x1e867667ef16111047c2c7f6adf4612bdf80064d", "0x2f9db0fd41429199519ad57ef4fd7cfece98d32b")
+
+    for each_assetinfo in blank_data["app_state"]["assets"]["tokens"]:
+        if each_assetinfo["asset_basic_info"]["symbol"] == "exoETH":
+            each_assetinfo["asset_basic_info"]["symbol"] = "imETH"
+        if each_assetinfo["asset_basic_info"]["name"] == "exoETH" or each_assetinfo["asset_basic_info"]["name"] == "exo ETH":
+            each_assetinfo["asset_basic_info"]["name"] = "imETH"
+    for each_token in blank_data["app_state"]["oracle"]["params"]["tokens"]:
+        if each_token["name"] == "nstETH":
+            each_token["decimal"] = 9
     return blank_data
 
 
